@@ -1,21 +1,15 @@
-use project_1::{run, TextTransformArgs};
+use project_1::run;
 use std::env;
+use std::process;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
 
-    let text_transform_args = TextTransformArgs::new(&args).unwrap_or_else(|err| {
-        println!("Usage: <transform_type> <text>");
-        println!("Transform_type: lowercase, uppercase, no-spaces, slugify, reverse, alternating");
-        println!("Problem parsing arguments: {}", err);
-        std::process::exit(1);
-    });
-
-    match run(text_transform_args) {
-        Ok(result) => println!("The result of your transformation is: {}", result),
+    match run(&args) {
+        Ok(result) => println!("{}", result),
         Err(e) => {
-            println!("Application error: {e}");
-            std::process::exit(1);
+            eprintln!("Error: {}", e);
+            process::exit(1);
         }
     }
 }
