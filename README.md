@@ -34,3 +34,14 @@
 - added csv crate ✓
 
 
+## Homework IV
+- spin two threads ✓
+- first thread is dedicated to input receiving ✓
+- second thread is dedicated to input processing ✓
+- use flume library and add channels to communicate between threads ✓
+- first thread is continously reading from the stdin ✓
+- first thread analyze the command and execute the appropriete operation ✓
+- implemented csv read from file funcionality ✓
+- implemented the one-shot funcionality ✓
+
+
